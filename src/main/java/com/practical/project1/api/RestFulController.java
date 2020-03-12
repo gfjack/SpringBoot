@@ -58,7 +58,7 @@ public class RestFulController {
       existedProject.setProjectDescription(targetedProject.getProjectDescription());
       projectRepository.save(existedProject);
 
-      return targetedProject.getProjectName() + "added";
+      return targetedProject.getProjectName() + " added";
     }
 
     return "no such project";
