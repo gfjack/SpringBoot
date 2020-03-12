@@ -56,8 +56,8 @@ public class RestFulController {
 	 * @param projectName name of the project meant to be updated
 	 * @return updated project information
 	 */
-	@PutMapping(path = "/projects/{projectName}", consumes = "application/json")
-	public ProjectInformation updateProjectInformation(@PathVariable ProjectInformation projectName) {
+	@PutMapping(path = "/projects/{project_name}", consumes = "application/json")
+	public ProjectInformation updateProjectInformation(@PathVariable("project_name") ProjectInformation projectName) {
 		projectRepository.save(projectName);
 		return projectName;
 	}
@@ -67,8 +67,8 @@ public class RestFulController {
 	 * @param projectName name of project meant to be deleted
 	 * @return deleted project
 	 */
-	@DeleteMapping(path = "projects/{projectName}")
-	public ProjectInformation deleteProjectByProjectName(@PathVariable String projectName) {
+	@DeleteMapping(path = "projects/{project_name}")
+	public ProjectInformation deleteProjectByProjectName(@PathVariable("project_name") String projectName) {
 
 		return projectRepository.deleteByProjectName(projectName);
 	}
@@ -78,8 +78,8 @@ public class RestFulController {
 	 * @param projectName name of the project
 	 * @return target project information
 	 */
-	@GetMapping(path = "/projects/{projectName}")
-	public ProjectInformation getProjectByName(@PathVariable String projectName) {
+	@GetMapping(path = "/projects/{project_name}")
+	public ProjectInformation getProjectByName(@PathVariable("project_name") String projectName) {
 
 		return projectRepository.findByProjectName(projectName);
 	}
